@@ -21,5 +21,8 @@ In the module i have provided a push button for controlling the output of the mo
 
 ![push button schematic](https://github.com/theonlyakhil/MCP73831-Based-BMS-Unit/blob/main/Snap/pushbutton_ctrl.png)
 
+Here **FDV304P** is a P-channel MOSFET that turns on when the push button is pressed and the source terminal of the MOSFET is connected to the anode of diode . The diode i have selected here is **BAV70L**, this is dual diode array in a single package (For providing reverse protection to other pin). Thus the REG_ENB line will become HIGH. This REG_ENB net is connected to the #SHDN pin of the output voltage regulator, whenever the #SHDN pin becomes HIGH the voltage regulator is switched ON , after turning ON the voltage regulator and then microcontroller (any of your choise ) the hold pin should be enabled immeatly , thus the output voltage regulator will remain in its ON state. For turning OFF the device the status of the push button can be read from the **POWER_BUTTON** by connecting it to an input pin of the microcontroller . After Detecting **POWER_BUTTON** state HIGH make the HOLD pin LOW through microcontroller , so both the input to the diode array will be come LOW , thus #SHDN pin of the regulator will become LOW and the regulator is turned OFF ..
+
+
 
 
