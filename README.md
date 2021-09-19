@@ -44,6 +44,8 @@ Here **FDV304P** is a P-channel MOSFET that turns on when the push button is pre
 
 ![ISO VIEW](https://github.com/theonlyakhil/MCP73831-Based-BMS-Unit/blob/main/Snap/Iso_view.png)
 
+All the design files are available at the Hardware Section in this Repository 
 
+theonlyakhil :)
 
 
