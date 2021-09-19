@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc
 Date     : 19-09-2021
-Time     : 20:50:09
+Time     : 22:17:08
 
 Processing Rule : Clearance Constraint (Gap=0.254mm) (All),(All)
 Rule Violations :0
@@ -48,66 +48,31 @@ Rule Violations :0
 Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (IsVia),(IsVia)
 Rule Violations :0
 
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.05mm) (InComponent('U2')),(All)
+Rule Violations :0
+
 Processing Rule : Minimum Solder Mask Sliver (Gap=0.2mm) (All),(All)
-   Violation between Minimum Solder Mask Sliver Constraint: (0.197mm < 0.2mm) Between Pad J1-1(25.025mm,4.6mm) on Top Layer And Pad J1-2(25.025mm,5.6mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.133mm < 0.2mm) Between Pad J3-10(4.9mm,12.5mm) on Multi-Layer And Pad J3-7(5.95mm,13.725mm) on Multi-Layer [Top Solder] Mask Sliver [0.133mm] / [Bottom Solder] Mask Sliver [0.133mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.133mm < 0.2mm) Between Pad J3-11(4.9mm,7.5mm) on Multi-Layer And Pad J3-6(5.95mm,6.275mm) on Multi-Layer [Top Solder] Mask Sliver [0.133mm] / [Bottom Solder] Mask Sliver [0.133mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.197mm < 0.2mm) Between Pad J4-1(9.3mm,4.975mm) on Top Layer And Pad J4-2(10.3mm,4.975mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.082mm < 0.2mm) Between Pad U2-1(13.55mm,10.75mm) on Top Layer And Pad U2-9(15mm,10mm) on Top Layer [Top Solder] Mask Sliver [0.082mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.082mm < 0.2mm) Between Pad U2-2(13.55mm,10.25mm) on Top Layer And Pad U2-9(15mm,10mm) on Top Layer [Top Solder] Mask Sliver [0.082mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.082mm < 0.2mm) Between Pad U2-3(13.55mm,9.75mm) on Top Layer And Pad U2-9(15mm,10mm) on Top Layer [Top Solder] Mask Sliver [0.082mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.082mm < 0.2mm) Between Pad U2-4(13.55mm,9.25mm) on Top Layer And Pad U2-9(15mm,10mm) on Top Layer [Top Solder] Mask Sliver [0.082mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.082mm < 0.2mm) Between Pad U2-5(16.45mm,9.25mm) on Top Layer And Pad U2-9(15mm,10mm) on Top Layer [Top Solder] Mask Sliver [0.082mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.082mm < 0.2mm) Between Pad U2-6(16.45mm,9.75mm) on Top Layer And Pad U2-9(15mm,10mm) on Top Layer [Top Solder] Mask Sliver [0.082mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.082mm < 0.2mm) Between Pad U2-7(16.45mm,10.25mm) on Top Layer And Pad U2-9(15mm,10mm) on Top Layer [Top Solder] Mask Sliver [0.082mm]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.082mm < 0.2mm) Between Pad U2-8(16.45mm,10.75mm) on Top Layer And Pad U2-9(15mm,10mm) on Top Layer [Top Solder] Mask Sliver [0.082mm]
-Rule Violations :12
+Rule Violations :0
 
 Processing Rule : Silk To Solder Mask (Clearance=0.15mm) (IsPad),(All)
-   Violation between Silk To Solder Mask Clearance Constraint: (0.143mm < 0.15mm) Between Pad J3-6(5.95mm,6.275mm) on Multi-Layer And Track (3.2mm,6mm)(4.8mm,6mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.143mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.143mm < 0.15mm) Between Pad J3-7(5.95mm,13.725mm) on Multi-Layer And Track (3.2mm,14mm)(4.8mm,14mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.143mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.111mm < 0.15mm) Between Pad J3-8(2.15mm,13.875mm) on Multi-Layer And Track (-0.3mm,14mm)(1.1mm,14mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.111mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.111mm < 0.15mm) Between Pad J3-8(2.15mm,13.875mm) on Multi-Layer And Track (3.2mm,14mm)(4.8mm,14mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.111mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.111mm < 0.15mm) Between Pad J3-9(2.15mm,6.125mm) on Multi-Layer And Track (3.2mm,6mm)(4.8mm,6mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.111mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.15mm < 0.15mm) Between Pad SW1-4(18.1mm,16.4mm) on Multi-Layer And Track (17.2mm,15.6mm)(17.2mm,25.1mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.15mm]
-Rule Violations :6
+Rule Violations :0
 
 Processing Rule : Silk to Silk (Clearance=0.15mm) (All),(All)
 Rule Violations :0
 
 Processing Rule : Net Antennae (Tolerance=0mm) (All)
-   Violation between Net Antennae: Via (8.4mm,6.3mm) from Top Layer to Bottom Layer 
-   Violation between Net Antennae: Via (8.4mm,7.3mm) from Top Layer to Bottom Layer 
-Rule Violations :2
-
-Processing Rule : Board Clearance Constraint (Gap=0mm) (All)
-   Violation between Board Outline Clearance(Outline Edge): (0.2mm < 0.7mm) Between Board Edge And Pad J4-3(8mm,1.1mm) on Top Layer 
-   Violation between Board Outline Clearance(Outline Edge): (0.2mm < 0.7mm) Between Board Edge And Pad J4-4(11.6mm,1.1mm) on Top Layer 
-   Violation between Board Outline Clearance(Outline Edge): (0.4mm < 0.7mm) Between Board Edge And Pad SW1-2(23.85mm,18.9mm) on Multi-Layer 
-   Violation between Board Outline Clearance(Outline Edge): (0.4mm < 0.7mm) Between Board Edge And Pad SW1-3(19.35mm,18.9mm) on Multi-Layer 
-Rule Violations :4
-
-Processing Rule : Board Clearance Constraint (Gap=0mm) (OnLayer('Top Overlay'))
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Track (-0.3mm,14mm)(1.1mm,14mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Track (-0.3mm,6mm)(-0.3mm,14mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Track (-0.3mm,6mm)(1mm,6mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Track (-0.6mm,14mm)(-0.3mm,14mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Track (-0.6mm,6mm)(-0.3mm,6mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Track (-0.6mm,6mm)(-0.6mm,14mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Track (-0.9mm,10.3mm)(-0.6mm,10mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Track (-0.9mm,9.7mm)(-0.6mm,10mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Track (-1.4mm,10mm)(-0.6mm,10mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Track (17.2mm,15.6mm)(17.2mm,25.1mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Track (17.2mm,25.1mm)(25.6mm,25.1mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Track (25.4mm,25.1mm)(25.8mm,25.1mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Track (25.8mm,25.1mm)(26.1mm,25.1mm) on Top Overlay 
-   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Board Edge And Track (26.1mm,14.6mm)(26.1mm,25.1mm) on Top Overlay 
-Rule Violations :14
+Rule Violations :0
 
 Processing Rule : Board Clearance Constraint (Gap=0mm) (InComponentClass('Mounting Hole'))
 Rule Violations :0
 
-Processing Rule : Board Clearance Constraint (Gap=0mm) (InComponent('J1'))
+Processing Rule : Board Clearance Constraint (Gap=0mm) (OnLayer('Top Overlay'))
+Rule Violations :0
+
+Processing Rule : Board Clearance Constraint (Gap=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Board Clearance Constraint (Gap=0mm) (InComponent('SW1'))
 Rule Violations :0
 
 Processing Rule : Matched Lengths(Tolerance=0.5mm) (InNetClass('ANAI_OUT'))
@@ -120,6 +85,6 @@ Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (Al
 Rule Violations :0
 
 
-Violations Detected : 38
+Violations Detected : 0
 Waived Violations : 0
-Time Elapsed        : 00:00:01
+Time Elapsed        : 00:00:02
