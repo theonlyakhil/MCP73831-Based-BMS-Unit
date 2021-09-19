@@ -12,5 +12,14 @@ The device have a constant current , constant voltage charge algorithm that prot
                         Rprog in kOhms
                         Ireg in milliampere
 
+The output from the Battery Management Module is connected to a 3.3v Linear Voltage Regulator(MCP1812BT). MCP1812BT is 300mA linear voltage regulator. 
+
+## Push Button Circuit 
+---------------------------------------------------------------
+
+In the module i have provided a push button for controlling the output of the module . 
+
+![push button schematic](https://github.com/theonlyakhil/MCP73831-Based-BMS-Unit/blob/main/Snap/pushbutton_ctrl.png)
+
 
 
