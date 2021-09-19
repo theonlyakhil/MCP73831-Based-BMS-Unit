@@ -1,0 +1,10 @@
+DRC Rules Export File for PCB: D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc
+RuleKind=MinimumAnnularRing|RuleName=MinimumAnnularRing|Scope=Board|Minimum=5.12
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=4.00
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=0.39
+RuleKind=Width|RuleName=RF LINE|Scope=Board|Minimum=5.75
+RuleKind=Width|RuleName=IQ DATA|Scope=Board|Minimum=5.75
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=10.00
+RuleKind=Clearance|RuleName=Top_GND_Poly_Clearance|Scope=Board|Minimum=11.81
+RuleKind=Clearance|RuleName=Fid_C|Scope=Board|Minimum=19.69

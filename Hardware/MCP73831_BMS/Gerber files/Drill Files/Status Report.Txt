@@ -1,0 +1,13 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [MCP73831_BMS.PrjPcb]
+   Generated File[MCP73831_BMS-RoundHoles.TXT]
+   Generated File[MCP73831_BMS-SlotHoles.TXT]
+   Generated File[MCP73831_BMS.LDP]
+   Generated File[MCP73831_BMS.DRR]
+
+
+Files Generated   : 4
+Documents Printed : 0
+
+Finished Output Generation At 23:42:42 On 19-09-2021

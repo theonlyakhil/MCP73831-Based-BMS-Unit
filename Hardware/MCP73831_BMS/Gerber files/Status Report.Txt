@@ -1,0 +1,26 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of Project [MCP73831_BMS.PrjPcb]
+   Generated File[MCP73831_BMS.GTO]
+   Generated File[MCP73831_BMS.GTP]
+   Generated File[MCP73831_BMS.GTS]
+   Generated File[MCP73831_BMS.GTL]
+   Generated File[MCP73831_BMS.GBL]
+   Generated File[MCP73831_BMS.GBS]
+   Generated File[MCP73831_BMS.GBP]
+   Generated File[MCP73831_BMS.GBO]
+   Generated File[MCP73831_BMS.GM1]
+   Generated File[MCP73831_BMS.GM2]
+   Generated File[MCP73831_BMS.GM3]
+   Generated File[MCP73831_BMS.GM13]
+   Generated File[MCP73831_BMS.GKO]
+   Generated File[MCP73831_BMS.GPT]
+   Generated File[MCP73831_BMS.RUL]
+   Generated File[MCP73831_BMS.EXTREP]
+   Generated File[MCP73831_BMS.REP]
+
+
+Files Generated   : 17
+Documents Printed : 0
+
+Finished Output Generation At 23:41:13 On 19-09-2021

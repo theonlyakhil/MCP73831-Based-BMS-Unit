@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=mcp73831_bms-roundholes.txt|DrillLayers=gtl,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=mcp73831_bms-slotholes.txt|DrillLayers=gtl,gbl
