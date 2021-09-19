@@ -74,6 +74,23 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
+[Document3]
+DocumentPath=MCP73831_BMS.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=XFBGEDWB
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
@@ -1086,6 +1103,14 @@ SelectedOnly=0
 UpdateVariants=1
 UpdateToLatestRevision=1
 PartTypes=0
+
+[NetInfos]
+Net1=NetName=+3V3|NetColor=$0000BE00
+Net2=NetName=GND|NetColor=$00FF6E6E
+Net3=NetName=POWER_BUTTON|NetColor=$00FFFF6E
+Net4=NetName=PWR_HOLD|NetColor=$00FFFF6E
+Net5=NetName=VBAT|NetColor=$00FF6EFF
+Net6=NetName=VBUS|NetColor=$006E6EFF
 
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=0|UseName=-1|InclAllRules=0
