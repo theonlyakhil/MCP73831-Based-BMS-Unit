@@ -1,0 +1,510 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD21\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">19-09-2021</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">20:50:09</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc" class="file"><acronym title="D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc">D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">38</td></tr>
+</table>
+</td>
+</table><a name="IDLB3N5WV4UXJYYPJDIYKPXD30B0TOMZH5LSE11IOXZEUPVUJ1USH"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYOHMGBIJSG3V1AT5H5XEEXDFMMBGLJEMCJD1DGXVECMZBTRD0L">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID5GMYZQF1ZX1Q2TZDNUQ0PCLCEDO521FCS42OQNRQWBCZGKAJSKL">Clearance Constraint (Gap=0.3mm) (InNamedPolygon('TopGND')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDC3ZZ2YLFMTCNHKVFE31FVVM41KUFV0CW3PPLZAG0DIOZEDPYJ3LG">Clearance Constraint (Gap=0.5mm) (InComponentClass('FIDUCIALS')),(InPolygon)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIEBGHNRQGKAYN0FTQPYHAKNWTF4CHC0Z2VUAIWKPABCBBRWLCGAE">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLCHHPVCZXY1GH1Q1PTZXVFCCOL0PG4O4NVE5OKKKIWYKBVZJPTKG">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXE0JMQIMVW52OS0YU5M5GD3JCFEBLA3J4ZDIRIKUK4DRDXXN3DIB">Un-Connected Pin Constraint ( (not InComponentClass('FIDUCIALS') and InComponent('D3') and InComponent('D2')) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJTY03ZGBBGI2LSVQJCDFXJ1VANYN3H2K2FPDOCHMJOU1F34GUNED">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBVHZJ0BAPV1QFA03F30OE3EXWOSGII1JTM3I24RJKFOW3JH4JQP">Width Constraint (Min=0.146mm) (Max=0.146mm) (Preferred=0.146mm) (InNetClass('RF LINE'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDTXEL2FGHTLJOMI120S415LY5IPJL05M30B45H4IA2P0U3PPZJ0MI">Width Constraint (Min=0.146mm) (Max=0.146mm) (Preferred=0.146mm) (InNetClass('IQ_DATA'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0LZ2R1XQGWXZEQW4UU5V53JAXGFTCJJEH2QE3YKEB3433J5F0FLI">Width Constraint (Min=0.01mm) (Max=5mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQ2QOTME5OGY4JN4JEUM1H5VOBDKSSF2RAPCA3POSWREVWB31EGSM">Power Plane Connect Rule(Direct Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQFM03UQBDRYHCD4NMUCS1WQQ5C0MH32O4FN3AAGD54T33GJFB4D">Minimum Annular Ring (Minimum=0.13mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYFCKTBTWYQZSGB0345TCL5JQMEKWPRY5EZSTBFNNPX5WXFDXQOLM">Hole Size Constraint (Min=0.2mm) (Max=6.3mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJ5QFRXUK0HA2HBJGRZ01KE42BF55SE202GVXI3A0KJ5AIK5JQCE">Hole To Hole Clearance (Gap=0.406mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDH0VMPRKZQ3IWLLYOW2EQ5SWDT3FDBP2WVHL2UU1M2S1JIYKXWF">Hole To Hole Clearance (Gap=0.254mm) (IsVia),(IsVia)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZYL5RPAUQXFAGKTM3FIIE033QN0AAPYZDOY5U2JWCLLKOEFB5TBG">Minimum Solder Mask Sliver (Gap=0.2mm) (All),(All)</a></td>
+<td class="column2">12</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDCS4CQZG3YOX5D2OGPG3ISP5AGESDQ3HJNMA03OBNVU5SJOGV4X1P">Silk To Solder Mask (Clearance=0.15mm) (IsPad),(All)</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDUT2PZ2LRACEVKDRMHTCYG2L0OF2RPNAFP0O1UAFB2CP5FDFMYZ3B">Silk to Silk (Clearance=0.15mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDOPOFXG14AVAIGMFYK5CLHY0QPOZGWAG4TMQA3SLHMJWDS30U2RE">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDU3KZFTPI34JHKGLNKTBGVUPSGJU4ELJ0OJYO1QBLBI0M3L25JEGM">Board Clearance Constraint (Gap=0mm) (All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDPTRQB1IDUI1BHIYGLV5A2EXVGND1CC1CJV23EULI1XIYODWU4XSD">Board Clearance Constraint (Gap=0mm) (OnLayer('Top Overlay'))</a></td>
+<td class="column2">14</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDITWBFHRI1HYVCWUUW253AB1KRM22RDLVXXMDGBOL0RO33TLX1YZE">Board Clearance Constraint (Gap=0mm) (InComponentClass('Mounting Hole'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAYV5E3GMERMIIBTOYKO3NLKYNDTFVXSA23GMLLDJAZ3JNZM20E2I">Board Clearance Constraint (Gap=0mm) (InComponent('J1'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLFF4CESIFMMRDIH1RZK1VOLYPLJDTYO11ZFP3VGAQAYPEK0LF1QC">Matched Lengths(Tolerance=0.5mm) (InNetClass('ANAI_OUT'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBEWTHUCCQXAKLME3GZE0RX15SEG21Q2JCUTHBONNLTF5FOPU3TF">Matched Lengths(Tolerance=1mm) (InNetClass('IQ_DATA'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDRYTSST0GOZDKMNBMNNNMAPJ52CPDJVEFLJS3ZCOJVXUYNN3RDMAM">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">38</td>
+</tr>
+</table><br><a name="IDZYL5RPAUQXFAGKTM3FIIE033QN0AAPYZDOY5U2JWCLLKOEFB5TBG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.2mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2196.288mil|Location2.X=2205.412mil|Location1.Y=1377.328mil|Location2.Y=1386.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2196.288mil|Location2.X=2205.412mil|Location1.Y=1377.328mil|Location2.Y=1386.452mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.2mm) Between Pad J1-1(25.025mm,4.6mm) on Top Layer And Pad J1-2(25.025mm,5.6mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1381.134mil|Location2.X=1390.317mil|Location1.Y=1687.744mil|Location2.Y=1696.868mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1381.134mil|Location2.X=1390.317mil|Location1.Y=1687.744mil|Location2.Y=1696.868mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.133mm &lt; 0.2mm) Between Pad J3-10(4.9mm,12.5mm) on Multi-Layer And Pad J3-7(5.95mm,13.725mm) on Multi-Layer [Top Solder] Mask Sliver [0.133mm] / [Bottom Solder] Mask Sliver [0.133mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1381.134mil|Location2.X=1390.265mil|Location1.Y=1452.738mil|Location2.Y=1461.862mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1381.134mil|Location2.X=1390.265mil|Location1.Y=1452.738mil|Location2.Y=1461.862mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.133mm &lt; 0.2mm) Between Pad J3-11(4.9mm,7.5mm) on Multi-Layer And Pad J3-6(5.95mm,6.275mm) on Multi-Layer [Top Solder] Mask Sliver [0.133mm] / [Bottom Solder] Mask Sliver [0.133mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1562.367mil|Location2.X=1571.491mil|Location1.Y=1337.895mil|Location2.Y=1347.019mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1562.367mil|Location2.X=1571.491mil|Location1.Y=1337.895mil|Location2.Y=1347.019mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.2mm) Between Pad J4-1(9.3mm,4.975mm) on Top Layer And Pad J4-2(10.3mm,4.975mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1729.395mil|Location2.X=1738.519mil|Location1.Y=1588.879mil|Location2.Y=1598.003mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1729.395mil|Location2.X=1738.519mil|Location1.Y=1588.879mil|Location2.Y=1598.003mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.082mm &lt; 0.2mm) Between Pad U2-1(13.55mm,10.75mm) on Top Layer And Pad U2-9(15mm,10mm) on Top Layer [Top Solder] Mask Sliver [0.082mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1729.395mil|Location2.X=1738.519mil|Location1.Y=1569.194mil|Location2.Y=1578.318mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1729.395mil|Location2.X=1738.519mil|Location1.Y=1569.194mil|Location2.Y=1578.318mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.082mm &lt; 0.2mm) Between Pad U2-2(13.55mm,10.25mm) on Top Layer And Pad U2-9(15mm,10mm) on Top Layer [Top Solder] Mask Sliver [0.082mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1729.395mil|Location2.X=1738.519mil|Location1.Y=1549.509mil|Location2.Y=1558.633mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1729.395mil|Location2.X=1738.519mil|Location1.Y=1549.509mil|Location2.Y=1558.633mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.082mm &lt; 0.2mm) Between Pad U2-3(13.55mm,9.75mm) on Top Layer And Pad U2-9(15mm,10mm) on Top Layer [Top Solder] Mask Sliver [0.082mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1729.395mil|Location2.X=1738.519mil|Location1.Y=1538.092mil|Location2.Y=1547.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1729.395mil|Location2.X=1738.519mil|Location1.Y=1538.092mil|Location2.Y=1547.216mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.082mm &lt; 0.2mm) Between Pad U2-4(13.55mm,9.25mm) on Top Layer And Pad U2-9(15mm,10mm) on Top Layer [Top Solder] Mask Sliver [0.082mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1804.788mil|Location2.X=1813.912mil|Location1.Y=1538.092mil|Location2.Y=1547.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1804.788mil|Location2.X=1813.912mil|Location1.Y=1538.092mil|Location2.Y=1547.216mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.082mm &lt; 0.2mm) Between Pad U2-5(16.45mm,9.25mm) on Top Layer And Pad U2-9(15mm,10mm) on Top Layer [Top Solder] Mask Sliver [0.082mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1804.788mil|Location2.X=1813.912mil|Location1.Y=1549.509mil|Location2.Y=1558.633mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1804.788mil|Location2.X=1813.912mil|Location1.Y=1549.509mil|Location2.Y=1558.633mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.082mm &lt; 0.2mm) Between Pad U2-6(16.45mm,9.75mm) on Top Layer And Pad U2-9(15mm,10mm) on Top Layer [Top Solder] Mask Sliver [0.082mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1804.788mil|Location2.X=1813.912mil|Location1.Y=1569.194mil|Location2.Y=1578.318mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1804.788mil|Location2.X=1813.912mil|Location1.Y=1569.194mil|Location2.Y=1578.318mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.082mm &lt; 0.2mm) Between Pad U2-7(16.45mm,10.25mm) on Top Layer And Pad U2-9(15mm,10mm) on Top Layer [Top Solder] Mask Sliver [0.082mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1804.788mil|Location2.X=1813.912mil|Location1.Y=1602.391mil|Location2.Y=1611.515mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1804.788mil|Location2.X=1813.912mil|Location1.Y=1602.391mil|Location2.Y=1611.515mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.082mm &lt; 0.2mm) Between Pad U2-8(16.45mm,10.75mm) on Top Layer And Pad U2-9(15mm,10mm) on Top Layer [Top Solder] Mask Sliver [0.082mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDCS4CQZG3YOX5D2OGPG3ISP5AGESDQ3HJNMA03OBNVU5SJOGV4X1P"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.15mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1371.027mil|Location2.X=1378.766mil|Location1.Y=1412.432mil|Location2.Y=1422.462mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1371.027mil|Location2.X=1378.766mil|Location1.Y=1412.432mil|Location2.Y=1422.462mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.143mm &lt; 0.15mm) Between Pad J3-6(5.95mm,6.275mm) on Multi-Layer And Track (3.2mm,6mm)(4.8mm,6mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.143mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1371.027mil|Location2.X=1378.672mil|Location1.Y=1727.144mil|Location2.Y=1737.207mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1371.027mil|Location2.X=1378.672mil|Location1.Y=1727.144mil|Location2.Y=1737.207mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.143mm &lt; 0.15mm) Between Pad J3-7(5.95mm,13.725mm) on Multi-Layer And Track (3.2mm,14mm)(4.8mm,14mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.143mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1224.929mil|Location2.X=1232.085mil|Location1.Y=1728.082mil|Location2.Y=1735.237mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1224.929mil|Location2.X=1232.085mil|Location1.Y=1728.082mil|Location2.Y=1735.237mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.111mm &lt; 0.15mm) Between Pad J3-8(2.15mm,13.875mm) on Multi-Layer And Track (-0.3mm,14mm)(1.1mm,14mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.111mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1299.411mil|Location2.X=1306.567mil|Location1.Y=1728.082mil|Location2.Y=1735.237mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1299.411mil|Location2.X=1306.567mil|Location1.Y=1728.082mil|Location2.Y=1735.237mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.111mm &lt; 0.15mm) Between Pad J3-8(2.15mm,13.875mm) on Multi-Layer And Track (3.2mm,14mm)(4.8mm,14mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.111mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1299.411mil|Location2.X=1306.567mil|Location1.Y=1414.369mil|Location2.Y=1421.524mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1299.411mil|Location2.X=1306.567mil|Location1.Y=1414.369mil|Location2.Y=1421.524mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.111mm &lt; 0.15mm) Between Pad J3-9(2.15mm,6.125mm) on Multi-Layer And Track (3.2mm,6mm)(4.8mm,6mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.111mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1859.605mil|Location2.X=1866.76mil|Location1.Y=1823.194mil|Location2.Y=1830.349mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1859.605mil|Location2.X=1866.76mil|Location1.Y=1823.194mil|Location2.Y=1830.349mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.15mm &lt; 0.15mm) Between Pad SW1-4(18.1mm,16.4mm) on Multi-Layer And Track (17.2mm,15.6mm)(17.2mm,25.1mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.15mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDOPOFXG14AVAIGMFYK5CLHY0QPOZGWAG4TMQA3SLHMJWDS30U2RE"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1498.469mil|Location2.X=1532.599mil|Location1.Y=1415.791mil|Location2.Y=1467.376mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1498.469mil|Location2.X=1532.599mil|Location1.Y=1415.791mil|Location2.Y=1467.376mil|Absolute=True">Net Antennae: Via (8.4mm,6.3mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1498.469mil|Location2.X=1532.599mil|Location1.Y=1455.161mil|Location2.Y=1506.746mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1498.469mil|Location2.X=1532.599mil|Location1.Y=1455.161mil|Location2.Y=1506.746mil|Absolute=True">Net Antennae: Via (8.4mm,7.3mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDU3KZFTPI34JHKGLNKTBGVUPSGJU4ELJ0OJYO1QBLBI0M3L25JEGM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Board Clearance Constraint (Gap=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1458.036mil|Location2.X=1501.596mil|Location1.Y=1170.635mil|Location2.Y=1199.444mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1458.036mil|Location2.X=1501.596mil|Location1.Y=1170.635mil|Location2.Y=1199.444mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.2mm &lt; 0.7mm) Between Board Edge And Pad J4-3(8mm,1.1mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1599.769mil|Location2.X=1643.328mil|Location1.Y=1170.635mil|Location2.Y=1199.444mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1599.769mil|Location2.X=1643.328mil|Location1.Y=1170.635mil|Location2.Y=1199.444mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.2mm &lt; 0.7mm) Between Board Edge And Pad J4-4(11.6mm,1.1mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2105.674mil|Location2.X=2149.234mil|Location1.Y=1946.226mil|Location2.Y=1975.035mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2105.674mil|Location2.X=2149.234mil|Location1.Y=1946.226mil|Location2.Y=1975.035mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.4mm &lt; 0.7mm) Between Board Edge And Pad SW1-2(23.85mm,18.9mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1928.509mil|Location2.X=1972.068mil|Location1.Y=1946.226mil|Location2.Y=1975.035mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1928.509mil|Location2.X=1972.068mil|Location1.Y=1946.226mil|Location2.Y=1975.035mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.4mm &lt; 0.7mm) Between Board Edge And Pad SW1-3(19.35mm,18.9mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDPTRQB1IDUI1BHIYGLV5A2EXVGND1CC1CJV23EULI1XIYODWU4XSD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Board Clearance Constraint (Gap=0mm) (OnLayer('Top Overlay'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1171.007mil|Location2.X=1177.256mil|Location1.Y=1729.159mil|Location2.Y=1735.408mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1171.007mil|Location2.X=1177.256mil|Location1.Y=1729.159mil|Location2.Y=1735.408mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Board Edge And Track (-0.3mm,14mm)(1.1mm,14mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1166.167mil|Location2.X=1172.416mil|Location1.Y=1571.679mil|Location2.Y=1577.928mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1166.167mil|Location2.X=1172.416mil|Location1.Y=1571.679mil|Location2.Y=1577.928mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Board Edge And Track (-0.3mm,6mm)(-0.3mm,14mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1171.007mil|Location2.X=1177.256mil|Location1.Y=1414.198mil|Location2.Y=1420.447mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1171.007mil|Location2.X=1177.256mil|Location1.Y=1414.198mil|Location2.Y=1420.447mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Board Edge And Track (-0.3mm,6mm)(1mm,6mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1160.261mil|Location2.X=1166.511mil|Location1.Y=1729.159mil|Location2.Y=1735.408mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1160.261mil|Location2.X=1166.511mil|Location1.Y=1729.159mil|Location2.Y=1735.408mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Board Edge And Track (-0.6mm,14mm)(-0.3mm,14mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1160.261mil|Location2.X=1166.511mil|Location1.Y=1414.198mil|Location2.Y=1420.447mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1160.261mil|Location2.X=1166.511mil|Location1.Y=1414.198mil|Location2.Y=1420.447mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Board Edge And Track (-0.6mm,6mm)(-0.3mm,6mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1154.356mil|Location2.X=1160.605mil|Location1.Y=1571.679mil|Location2.Y=1577.928mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1154.356mil|Location2.X=1160.605mil|Location1.Y=1571.679mil|Location2.Y=1577.928mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Board Edge And Track (-0.6mm,6mm)(-0.6mm,14mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1148.45mil|Location2.X=1154.699mil|Location1.Y=1577.584mil|Location2.Y=1583.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1148.45mil|Location2.X=1154.699mil|Location1.Y=1577.584mil|Location2.Y=1583.833mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Board Edge And Track (-0.9mm,10.3mm)(-0.6mm,10mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1148.45mil|Location2.X=1154.699mil|Location1.Y=1565.773mil|Location2.Y=1572.022mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1148.45mil|Location2.X=1154.699mil|Location1.Y=1565.773mil|Location2.Y=1572.022mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Board Edge And Track (-0.9mm,9.7mm)(-0.6mm,10mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1138.608mil|Location2.X=1144.857mil|Location1.Y=1571.679mil|Location2.Y=1577.928mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1138.608mil|Location2.X=1144.857mil|Location1.Y=1571.679mil|Location2.Y=1577.928mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Board Edge And Track (-1.4mm,10mm)(-0.6mm,10mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1855.143mil|Location2.X=1861.392mil|Location1.Y=2066.839mil|Location2.Y=2073.088mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1855.143mil|Location2.X=1861.392mil|Location1.Y=2066.839mil|Location2.Y=2073.088mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Board Edge And Track (17.2mm,15.6mm)(17.2mm,25.1mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2020.497mil|Location2.X=2026.747mil|Location1.Y=2166.167mil|Location2.Y=2172.416mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2020.497mil|Location2.X=2026.747mil|Location1.Y=2166.167mil|Location2.Y=2172.416mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Board Edge And Track (17.2mm,25.1mm)(25.6mm,25.1mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2185.852mil|Location2.X=2192.101mil|Location1.Y=2166.167mil|Location2.Y=2172.416mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2185.852mil|Location2.X=2192.101mil|Location1.Y=2166.167mil|Location2.Y=2172.416mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Board Edge And Track (25.4mm,25.1mm)(25.8mm,25.1mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2199.631mil|Location2.X=2205.881mil|Location1.Y=2166.167mil|Location2.Y=2172.416mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2199.631mil|Location2.X=2205.881mil|Location1.Y=2166.167mil|Location2.Y=2172.416mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Board Edge And Track (25.8mm,25.1mm)(26.1mm,25.1mm) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2205.537mil|Location2.X=2211.786mil|Location1.Y=2066.839mil|Location2.Y=2073.088mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\MCP73831-Based-BMS-Unit\Hardware\MCP73831_BMS\MCP73831_BMS.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2205.537mil|Location2.X=2211.786mil|Location1.Y=2066.839mil|Location2.Y=2073.088mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Board Edge And Track (26.1mm,14.6mm)(26.1mm,25.1mm) on Top Overlay </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

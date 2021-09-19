@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=GND Pin=MH1-1
+Removed Pin From Net: NetName=GND Pin=MH2-1
+Removed Pin From Net: NetName=GND Pin=MH3-1
+Removed Pin From Net: NetName=GND Pin=MH4-1
+Removed Member From Class: ClassName=MCP73831_BMS Member=MH1
+Removed Member From Class: ClassName=MCP73831_BMS Member=MH2
+Removed Member From Class: ClassName=MCP73831_BMS Member=MH3
+Removed Member From Class: ClassName=MCP73831_BMS Member=MH4
+Added Room: Name=MCP73831_BMS
